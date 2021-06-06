@@ -1,12 +1,16 @@
 <?php
 
-$connection = mysqli_connect($host, $username, $passwd)
+$connection = mysqli_connect("localhost","root","","db_internship");
 if($_post)
 {
-    $name =$_POST['txt1'];
+    $name = $_POST['txt1'];
     $gender = $_POST['txt2'];
    
-    
+    $q = mysqli_query($connection, "insert into tbl_user (user_name,user_gender) values('{$name}','{$gender}')") or die(mysqli_error($connection));
+    if($q)
+    {
+        echo "<script>alert('Record added');</script>";
+    }        
 }
 ?>
 
@@ -23,3 +27,5 @@ if($_post)
         </form>
     </body>
 </html>
+
+echo "<a href ='table.php'>display record</a>";
