@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost","pma","db_internship");
+$connection = mysqli_connect("localhost","root","","db_internship");
  
 //query
 $q = mysqli_query($connection,"select * from tbl_user") or die(mysqli_error($connection));
@@ -9,13 +9,17 @@ echo"<tr>";
 echo"<th>ID</th>";
 echo"<th>NAME</th>";
 echo"<th>GENDER</th>";
+echo"<th>Action</th>";
+
+echo"</tr>";
 while ($row = mysqli_fetch_array($q))
 {
     echo"<tr>";
     echo "<td>{$row['user_id']}</td>";
     echo "<td>{$row['user_name']}</td>";
+    echo "<td>{$row['user_gender']}</td>";
     echo "<td><a href=''>deletet</a></td>";
-    echo"</tr>"
+    echo"</tr>";
 }
     echo"</table>";
-echo "<a href ='insert.php'>add record</a>";
+echo "<a href ='insert_record.php'>add record</a>";
