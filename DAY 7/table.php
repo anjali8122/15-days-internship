@@ -18,7 +18,7 @@ while ($row = mysqli_fetch_array($q))
     echo "<td>{$row['user_id']}</td>";
     echo "<td>{$row['user_name']}</td>";
     echo "<td>{$row['user_gender']}</td>";
-    echo "<td><a href=''>deletet</a></td>";
+    echo "<td><a href=''>delete</a></td>";
     echo"</tr>";
 }
     echo"</table>";
